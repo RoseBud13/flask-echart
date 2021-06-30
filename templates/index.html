@@ -1,0 +1,35 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China Catia License Monitoring</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+    {% endblock %}
+</head>
+<body>
+    <div class="head-container">
+        <h1>China Catia License Monitoring</h1>
+        <div>
+            <div class="info">
+                <h3>DSLS_gotsvl1144 Info</h3>
+            </div>
+            <div class="reload" onclick="location.reload()">Reload</div>
+            <div class="timestamp">Last reload: {{ current_time }}</div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+    <ul class="list">
+        {% for each in data %}
+        <li>
+            <span class="name">{{ each.name }}</span>
+            <span class="right"> In use: {{ each.inuse }}</span>
+            <span class="right"> Total: {{ each.total }}</span>
+        </li> 
+        {% endfor %}
+    </ul>
+    <h5>Source: http://mbase.got.volvocars.net/mbaseCache/api/hash/DSLS_gotsvl1144_Info</h5>
+</body>
+</html>
